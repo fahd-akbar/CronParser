@@ -1,0 +1,35 @@
+// Plugins are a way to share common configuration settings between projects
+// Apply the java plugin to add basic support for Java, while the `application`
+// adds some basic tasks to package up our application when its ready.
+
+plugins {
+    id 'com.adarshr.test-logger' version '3.0.0'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+group 'engineering.deliveroo'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.deliveroo.parser.CronParser'
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
