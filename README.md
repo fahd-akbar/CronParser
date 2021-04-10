@@ -37,4 +37,4 @@ command       /usr/bin/find
 
 # Online Crontab
 
-https://crontab.guru/#5-10_4,6_*_*_*
+https://crontab.guru
